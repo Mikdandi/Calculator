@@ -11,6 +11,9 @@ namespace Assets.Scripts
         Mult,
         Dillenna,
         Result,
+        ChangeSign,
+        ToZero,
+        Persentage,
         NotSelected
 
     }

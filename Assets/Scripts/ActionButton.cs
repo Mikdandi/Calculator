@@ -1,5 +1,3 @@
-
-
 using System;
 using System;
 using System.Collections;
@@ -29,6 +27,15 @@ public class ActionButton : MonoBehaviour
         },
         {
             ActionType.Result,"="
+        },
+        {
+            ActionType.ChangeSign,"+/-"
+        },
+        {
+            ActionType.ToZero,"AC"
+        },
+        {
+            ActionType.Persentage,"%"
         }
     };
     public event Action<ActionType, string> ButtonClicked;

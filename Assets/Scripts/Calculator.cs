@@ -5,12 +5,12 @@ namespace Assets.Scripts
     public class Calculator : MonoBehaviour
     {
         public CalculatorDisplay Display;
-        public NumberButtoms[] NumberButtons;
+        public NumberButton[] NumberButtons;
         public ActionButton[] ActionButtons;
         private int _lastResult;
         private ActionType _actionType = ActionType.NotSelected;
-        private int _numberOne;
-        private int _numberTwo;
+        private int _numberOne=0;
+        private int _numberTwo=0;
 
         void Start()
         {
@@ -32,6 +32,8 @@ namespace Assets.Scripts
             {
                 CalculateResult();
                 ShowResult();
+                _numberOne = 0;
+                _numberTwo = 0;
             }
 
             _actionType = actionType;
@@ -56,6 +58,21 @@ namespace Assets.Scripts
             {
                 _lastResult = _numberOne / _numberTwo;
             }
+            else if (_actionType == ActionType.ToZero)
+            {
+                _lastResult = 0;
+                _actionType = ActionType.NotSelected;
+                _numberOne = 0;
+                _numberTwo = 0;
+            }
+            else if (_actionType == ActionType.Persentage)
+            {
+                _lastResult = _numberOne / _numberTwo*100;
+            }
+         /*   else if (_actionType == ActionType.ChangeSign)
+            {
+                _lastResult = _numberOne / _numberTwo;
+            }*/
         }
 
         private void ShowResult()
@@ -69,11 +86,12 @@ namespace Assets.Scripts
             _lastResult = number;
             if (_actionType == ActionType.NotSelected)
             {
-                _numberOne = number;
+
+                _numberOne = _numberOne*10+number;
             }
             else
             {
-                _numberTwo = number;
+                _numberTwo = _numberTwo*10+number;
             }
 
         }
