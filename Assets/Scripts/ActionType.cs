@@ -14,6 +14,7 @@ namespace Assets.Scripts
         ChangeSign,
         ToZero,
         Persentage,
+        Dot,
         NotSelected
 
     }

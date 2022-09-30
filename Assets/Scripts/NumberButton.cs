@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class NumberButton : MonoBehaviour
 {
     public Numbers Number;
     public Button Button;
-    public Text Text;
+    public TextMeshProUGUI Text;
 
     public event Action<int> ButtonClicked;
 

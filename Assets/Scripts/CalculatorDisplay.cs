@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class CalculatorDisplay : MonoBehaviour
 {
-    public Text ResultDisplay;
+    public TextMeshProUGUI ResultDisplay;
 
-    public void Display(int result)
+    public void Display(double result)
     {
         ResultDisplay.text = result.ToString();
     }

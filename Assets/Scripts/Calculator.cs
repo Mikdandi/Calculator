@@ -7,10 +7,12 @@ namespace Assets.Scripts
         public CalculatorDisplay Display;
         public NumberButton[] NumberButtons;
         public ActionButton[] ActionButtons;
-        private int _lastResult;
+        private double _lastResult;
         private ActionType _actionType = ActionType.NotSelected;
-        private int _numberOne=0;
-        private int _numberTwo=0;
+        private double _numberOne=0;
+        private double _numberTwo = 0;
+        private int _stepdot1 = 1;
+        private int _stepdot2 = 1;
 
         void Start()
         {
@@ -34,6 +36,8 @@ namespace Assets.Scripts
                 ShowResult();
                 _numberOne = 0;
                 _numberTwo = 0;
+                _stepdot1 = 1;
+                _stepdot2 = 1;
             }
 
             _actionType = actionType;
@@ -64,6 +68,8 @@ namespace Assets.Scripts
                 _actionType = ActionType.NotSelected;
                 _numberOne = 0;
                 _numberTwo = 0;
+                _stepdot1 = 1;
+                _stepdot2 = 1;
             }
             else if (_actionType == ActionType.Persentage)
             {
@@ -89,9 +95,19 @@ namespace Assets.Scripts
 
                 _numberOne = _numberOne*10+number;
             }
+            else if(_actionType == ActionType.Dot)
+            {
+                _numberOne = _numberOne + number/(Mathf.Pow(10,_stepdot1));
+                _stepdot1++;
+            }
             else
             {
-                _numberTwo = _numberTwo*10+number;
+                _numberTwo = _numberTwo*10+number; 
+                if (_actionType == ActionType.Dot)
+                {
+                    _numberTwo = _numberTwo + number / (Mathf.Pow(10, _stepdot2));
+                    _stepdot2++;
+                }
             }
 
         }

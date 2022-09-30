@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ public class ActionButton : MonoBehaviour
 {
     public ActionType Action;
     public Button Button;
-    public Text Text;
+    public TextMeshProUGUI Text;
     private Dictionary<ActionType, string> ActionName = new Dictionary<ActionType, string>()
     {
         {
@@ -36,6 +37,9 @@ public class ActionButton : MonoBehaviour
         },
         {
             ActionType.Persentage,"%"
+        },
+        {
+            ActionType.Dot,"."
         }
     };
     public event Action<ActionType, string> ButtonClicked;
