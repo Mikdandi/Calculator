@@ -6,7 +6,7 @@ using Assets.Scripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using static Assets.Scripts.ActionType;
 public class ActionButton : MonoBehaviour
 {
     public ActionType Action;
@@ -54,7 +54,34 @@ public class ActionButton : MonoBehaviour
     {
         if (ButtonClicked != null)
             ButtonClicked.Invoke(Action, ActionName[Action]);
-
+        if (Input.GetKey("*"))
+        {
+            ButtonClicked.Invoke(Action, ActionName[Action]);
+        }
+        if (Input.GetKey("+"))
+        {
+            ButtonClicked.Invoke(Action, ActionName[Action]);
+        }
+        if (Input.GetKey("-"))
+        {
+            ButtonClicked.Invoke(Action, ActionName[Action]);
+        }
+        if (Input.GetKey("."))
+        {
+            ButtonClicked.Invoke(Action, ActionName[Action]);
+        }
+        if (Input.GetKey("/"))
+        {
+            ButtonClicked.Invoke(Action, ActionName[Action]);
+        }
+        if (Input.GetKey("a"))
+        {
+            ButtonClicked.Invoke(Action, ActionName[Action]);
+        }
+        if (Input.GetKey("%"))
+        {
+            ButtonClicked.Invoke(Action, ActionName[Action]);
+        }
     }
 }
 
