@@ -24,12 +24,6 @@ public class NumberButton : MonoBehaviour
     {
         if (ButtonClicked != null)
             ButtonClicked.Invoke((int)Number);
-        for(int i = 0; i < 10; i++)
-        {
-            if (Input.GetKey(Convert.ToString(i)))
-            {
-                ButtonClicked.Invoke(i);
-            }
-        }
+
     }
 }
