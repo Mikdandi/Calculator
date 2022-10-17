@@ -52,6 +52,7 @@ namespace Assets.Scripts
         {
             Button.onClick.AddListener(KeyboardOnButtonClicked);
             Text.text = ActionName[Action];
+            Debug.Log("Awake  KeyboardActionButton");
         }
 
         private void KeyboardOnButtonClicked()

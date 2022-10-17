@@ -48,6 +48,7 @@ public class ActionButton : MonoBehaviour
     {
         Button.onClick.AddListener(OnButtonClicked);
         Text.text = ActionName[Action];
+        Debug.Log("Awake ActionButton" + ActionName[Action]);
     }
 
     private void OnButtonClicked()

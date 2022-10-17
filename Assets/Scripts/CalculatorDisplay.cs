@@ -2,13 +2,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine;
+using System;
 
-public class CalculatorDisplay : MonoBehaviour
+namespace Assets.Scripts
 {
-    public TextMeshProUGUI ResultDisplay;
-
-    public void Display(double result)
+    public class CalculatorDisplay : MonoBehaviour
     {
-        ResultDisplay.text = result.ToString();
+        public TextMeshProUGUI ResultDisplay;
+
+        public void Display(double result)
+        {
+            ResultDisplay.text = result.ToString();
+        }
+        public void DisplayAction(string action)
+        {
+            ResultDisplay.text = action;
+        }
     }
 }

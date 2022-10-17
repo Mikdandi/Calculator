@@ -38,9 +38,15 @@ namespace Assets.Scripts
                 _numberTwo = 0;
                 _stepdot1 = 1;
                 _stepdot2 = 1;
+                _actionType = actionType;
             }
+            else
+            {
+                _actionType = actionType;
+                Display.DisplayAction(HandleAction(_actionType));
+            }
+ 
 
-            _actionType = actionType;
         }
 
         private void CalculateResult()
@@ -94,6 +100,7 @@ namespace Assets.Scripts
             {
 
                 _numberOne = _numberOne*10+number;
+                Display.Display(_numberOne);
             }
             else if(_actionType == ActionType.Dot)
             {
@@ -102,7 +109,8 @@ namespace Assets.Scripts
             }
             else
             {
-                _numberTwo = _numberTwo*10+number; 
+                _numberTwo = _numberTwo*10+number;
+                Display.Display(_numberTwo);
                 if (_actionType == ActionType.Dot)
                 {
                     _numberTwo = _numberTwo + number / (Mathf.Pow(10, _stepdot2));
@@ -110,6 +118,31 @@ namespace Assets.Scripts
                 }
             }
 
+        }
+        private string HandleAction(ActionType action)
+        {
+            string result = " ";
+            if(action == ActionType.Add)
+            {
+                result = "+";
+            }
+            else if (action == ActionType.Dillenna)
+            {
+                result = "/";
+            }
+            else if (action == ActionType.Minus)
+            {
+                result = "-";
+            }
+            else if (action == ActionType.Mult)
+            {
+                result = "*";
+            }
+            else if (action == ActionType.Persentage)
+            {
+                result = "%";
+            }
+            return result;
         }
 
 

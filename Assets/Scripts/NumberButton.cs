@@ -16,8 +16,11 @@ public class NumberButton : MonoBehaviour
 
     void Awake()
     {
+        
         Button.onClick.AddListener(OnButtonClicked);
         Text.text = ((int)Number).ToString();
+
+        Debug.Log("Awake  NumberButton " + ((int)Number).ToString());
     }
 
     private void OnButtonClicked()
